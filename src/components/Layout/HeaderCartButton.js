@@ -17,13 +17,14 @@ const CartButton = (props) => {
   }`;
 
   useEffect(() => {
-    if (items.length > 0) {
-      setButtonHighlighted(true);
-      console.log("here");
-      const timer = setTimeout(() => {
-        setButtonHighlighted(false);
-      }, 300);
+    if (items.length === 0) {
+      return;
     }
+    setButtonHighlighted(true);
+    console.log("here");
+    const timer = setTimeout(() => {
+      setButtonHighlighted(false);
+    }, 300);
     return () => {
       clearTimeout(timer);
     };
